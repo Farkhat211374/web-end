@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+body {
+    background-color: #E8ECEF;
+}
+
+p{
+    font-family: 'Indie Flower', cursive;
+    font-size: 26px;
+}
+
+h1{
+    font-family: 'Dancing Script', cursive;
+    font-size: 72px;
+}
+
+.centered {
+    padding-top: 200px;
+    text-align: center;
+}
+
+.secret-text {
+    text-align: center;
+    font-size: 2rem;
+    color: #fff;
+}
+.text{
+    background-color: #ffc244;
+    padding: 5rem;
+}
+.variety{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.variety i{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.brand{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.brandName{
+    color: #00a082;
+}
+.brand i{
+    margin-left: 20px;
+    margin-bottom: 15px;
+    color: #00a082;
+}
+.text div{
+    margin-top: 100px;
+}
+.main{
+    margin-top: 100px;
+    justify-content: center;
+    max-width: 400px;
+    align-items: center;
+    margin-left: 350px;
+    background-color: #ffffff;
+    padding: 50px;
+    border-radius: 50px;
+}
+.bc{
+    background-color: #ffc244;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+.card{
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
