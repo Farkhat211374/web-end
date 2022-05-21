@@ -1,3 +1,6 @@
+
+require('dotenv').config();
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
@@ -6,6 +9,7 @@ const session = require('express-session')
 const passport=require('passport')
 const bcrypt = require('bcrypt');
 
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 const app = express();
 
@@ -58,6 +62,15 @@ app.get("/secret", function(req, res){
     }
 });
 
+app.get("/auth/google",
+    passport.authenticate('google',{ scope: ["profile"] })
+)
+
+app.get('/auth/google/pizza',
+    passport.authenticate('google', { failureRedirect: '/login' }),
+    function(req, res) {
+        res.redirect('/secret');
+    });
 
 app.get('/logout',(req, res)=>{
     req.session = null;

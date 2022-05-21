@@ -32,3 +32,6 @@ exports.login = async (req, res) => {
         }
     })
 };
+exports.authGoogle = async (req, res) => {
+    passport.authenticate('google',{ scope: ["profile"] })
+}
