@@ -41,8 +41,15 @@ mongoose.connect(dbConfig.url, {
     process.exit();
 });
 
+app.get('/show',(req,res)=>{
+    if(req.isAuthenticated()){
+        res.render("show")
+    }else{
+        res.redirect("/login")
+    }
+});
 
-app.get("/", function(req, res){
+app.get("/", (req, res)=>{
     res.render("home");
 });
 
@@ -62,6 +69,7 @@ app.get("/secret", function(req, res){
     }
 });
 
+
 app.get("/auth/google",
     passport.authenticate('google',{ scope: ["profile"] })
 )
@@ -79,6 +87,8 @@ app.get('/logout',(req, res)=>{
         res.redirect('/');
     });
 });
+
+app.use('/find',require("./routes/ProductFind"));
 
 let port = process.env.PORT||7777;
 
