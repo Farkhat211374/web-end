@@ -35,9 +35,9 @@ passport.deserializeUser(function (id, done) {
 })
 
 passport.use(new GoogleStrategy({
-        clientID: process.env.CLIENT_ID,
-        clientSecret: process.env.CLIENT_SECRET,
-        callbackURL: "http://localhost:7777/auth/google/pizza"
+        clientID:"888553348835-ocu75np9rb3f39u6ru9qq0auc04lemec.apps.googleusercontent.com",
+        clientSecret: "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",
+        callbackURL: "http://localhost:7777/google/callback"
     },
     function(accessToken, refreshToken, profile, cb) {
         userModel.findOrCreate({ googleId: profile.id }, function (err, user) {

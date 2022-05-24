@@ -70,22 +70,25 @@ app.get("/secret", function(req, res){
 });
 
 
+
 app.get("/auth/google",
-    passport.authenticate('google',{ scope: ["profile"] })
+    passport.authenticate('google',{
+        scope: ["profile"]
+    })
 )
 
-app.get('/auth/google/pizza',
-    passport.authenticate('google', { failureRedirect: '/login' }),
+app.get('/auth/google/callback',
+    passport.authenticate('google', {
+        failureRedirect: '/login'
+    }),
     function(req, res) {
         res.redirect('/secret');
     });
 
-app.get('/logout',(req, res)=>{
-    req.session = null;
+app.get('/logout', (req,res)=>{
     req.logout();
-    req.session.destroy(()=>{
-        res.redirect('/');
-    });
+    req.session.destroy();
+    res.redirect('/log');
 });
 
 app.use('/find',require("./routes/ProductFind"));
@@ -95,3 +98,7 @@ let port = process.env.PORT||7777;
 app.listen(port, () => {
     console.log(`Server is listening on port http://localhost:${port}`);
 });
+
+function  isLoggedIn(req,res,next){
+    req.user ? next(): res.sendStatus(401);
+}
